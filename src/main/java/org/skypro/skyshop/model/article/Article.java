@@ -3,14 +3,17 @@ package org.skypro.skyshop.model.article;
 import org.skypro.skyshop.model.search.Searchable;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Article implements Searchable {
     private final String articleTitle;
     private final String textOfTheArticle;
+    private final UUID id;
 
-    public Article(String articleTitle, String textOfTheArticle) {
+    public Article(UUID id, String articleTitle, String textOfTheArticle) {
         this.articleTitle = articleTitle;
         this.textOfTheArticle = textOfTheArticle;
+        this.id = id;
     }
 
     public String getArticleTitle() {
@@ -25,9 +28,10 @@ public class Article implements Searchable {
     public String getName() {
         return getArticleTitle();
     }
+
     @Override
     public String toString() {
-        return "\n"+ getArticleTitle() + "- " + getTextOfTheArticle();
+        return getArticleTitle() + "- " + getTextOfTheArticle();
     }
 
     @Override
@@ -47,9 +51,14 @@ public class Article implements Searchable {
         Article article = (Article) o;
         return Objects.equals(articleTitle, article.articleTitle);
     }
+
     @Override
     public int hashCode() {
         return Objects.hashCode(articleTitle);
     }
-}
 
+    @Override
+    public UUID getId() {
+        return id;
+    }
+}

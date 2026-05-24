@@ -1,16 +1,20 @@
 package org.skypro.skyshop.model.product;
 
+import java.util.UUID;
+
 public class DiscountedProduct extends Product {
     private final int basePrice;
     private final int percentageDiscount;
+    private final UUID id;
 
-    public DiscountedProduct(String productName, int basePrice, int percentageDiscount) {
-        super(productName);
+    public DiscountedProduct(UUID id, String productName, int basePrice, int percentageDiscount) {
+        super(id, productName);
+        this.id = id;
         if (basePrice <= 0) {
             throw new IllegalArgumentException("неверно указана базовая цена!");
         }
         this.basePrice = basePrice;
-        if (percentageDiscount <0|| percentageDiscount>100) {
+        if (percentageDiscount < 0 || percentageDiscount > 100) {
             throw new IllegalArgumentException("неверно указан размер скидки!");
         }
         this.percentageDiscount = percentageDiscount;
@@ -50,5 +54,9 @@ public class DiscountedProduct extends Product {
     public String getTypeOfContent() {
         return "PRODUCT";
     }
-}
 
+    @Override
+    public UUID getId() {
+        return id;
+    }
+}
