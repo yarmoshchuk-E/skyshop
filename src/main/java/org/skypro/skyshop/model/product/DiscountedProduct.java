@@ -1,5 +1,7 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.UUID;
 
 public class DiscountedProduct extends Product {
@@ -39,17 +41,17 @@ public class DiscountedProduct extends Product {
     public String toString() {
         return "<" + getProductName() + ": " + getProductPrice() + ">" + "(" + "<" + percentageDiscount + ">" + "%)";
     }
-
+    @JsonIgnore
     @Override
     public String getName() {
         return getProductName();
     }
-
+    @JsonIgnore
     @Override
     public String getSearchTerm() {
         return getProductName();
     }
-
+    @JsonIgnore
     @Override
     public String getTypeOfContent() {
         return "PRODUCT";

@@ -29,7 +29,7 @@ public abstract class Product implements Searchable {
     @JsonIgnore
     public abstract boolean isSpecial();
 
-
+    @JsonIgnore
     @Override
     public String getName() {
         return getProductName();

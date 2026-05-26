@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.UUID;
 
 public interface Searchable {
-    @JsonIgnore
+
     String getName();
 
-    @JsonIgnore
+
     String getSearchTerm();
 
-    @JsonIgnore
+
     String getTypeOfContent();
 
     @JsonIgnore

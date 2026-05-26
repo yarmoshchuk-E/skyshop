@@ -1,5 +1,7 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.UUID;
 
 public class SimpleProduct extends Product {
@@ -37,13 +39,13 @@ public class SimpleProduct extends Product {
         return super.toString();
     }
 
-
+    @JsonIgnore
     @Override
     public String getSearchTerm() {
         return getProductName();
     }
 
-
+    @JsonIgnore
     @Override
     public String getTypeOfContent() {
         return "PRODUCT";
