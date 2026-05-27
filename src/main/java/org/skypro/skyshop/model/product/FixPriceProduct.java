@@ -32,12 +32,12 @@ public class FixPriceProduct extends Product {
     public String toString() {
         return "<" + getProductName() + ": " + getProductPrice() + ">" + "<" + FIX_PRICE + ">";
     }
-    @JsonIgnore
+
     @Override
     public String getSearchTerm() {
         return getProductName();
     }
-    @JsonIgnore
+
     @Override
     public String getTypeOfContent() {
         return "PRODUCT";

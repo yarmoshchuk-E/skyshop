@@ -26,10 +26,9 @@ public abstract class Product implements Searchable {
 
     public abstract int getProductPrice();
 
-    @JsonIgnore
+
     public abstract boolean isSpecial();
 
-    @JsonIgnore
     @Override
     public String getName() {
         return getProductName();
@@ -39,6 +38,14 @@ public abstract class Product implements Searchable {
     public String toString() {
         return "\n" + "<" + getProductName() + ": " + getProductPrice() + ">";
     }
+
+    @JsonIgnore
+    @Override
+    public String getSearchTerm() {return toString();}
+
+    @JsonIgnore
+    @Override
+    public String getTypeOfContent() {return "PRODUCT";}
 
     @Override
     public boolean equals(Object o) {

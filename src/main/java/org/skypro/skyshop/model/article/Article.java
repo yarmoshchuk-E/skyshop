@@ -24,7 +24,7 @@ public class Article implements Searchable {
     public String getTextOfTheArticle() {
         return textOfTheArticle;
     }
-    @JsonIgnore
+
     @Override
     public String getName() {
         return getArticleTitle();
@@ -34,6 +34,7 @@ public class Article implements Searchable {
     public String toString() {
         return getArticleTitle() + "- " + getTextOfTheArticle();
     }
+
     @JsonIgnore
     @Override
     public String getSearchTerm() {

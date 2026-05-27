@@ -39,13 +39,12 @@ public class SimpleProduct extends Product {
         return super.toString();
     }
 
-    @JsonIgnore
     @Override
     public String getSearchTerm() {
         return getProductName();
     }
 
-    @JsonIgnore
+
     @Override
     public String getTypeOfContent() {
         return "PRODUCT";
