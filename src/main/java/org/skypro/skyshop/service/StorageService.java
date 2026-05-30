@@ -1,4 +1,4 @@
-package org.skypro.skyshop.model.service;
+package org.skypro.skyshop.service;
 
 import org.skypro.skyshop.model.article.Article;
 import org.skypro.skyshop.model.product.DiscountedProduct;
@@ -9,13 +9,25 @@ import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class StorageService {
 
-    private final Map<UUID, Product> products = new HashMap<>();
-    private final Map<UUID, Article> articles = new HashMap<>();
+    private final Map<UUID, Product> products;
+    private final Map<UUID, Article> articles;
 
+    Map <UUID,Product> availableProducts= new HashMap<>();
+
+    public StorageService() {
+        this.products = new HashMap<>();
+        this.articles = new HashMap<>();
+        initializationTestData();
+
+        this.availableProducts = products.entrySet().stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
 
     public Collection<Article> getAllArticles() {
         return Collections.unmodifiableCollection(articles.values());
@@ -32,8 +44,8 @@ public class StorageService {
         return allSearchables;
     }
 
-    public StorageService() {
-        initializationTestData();
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(availableProducts.get(id));
     }
 
     private void initializationTestData() {

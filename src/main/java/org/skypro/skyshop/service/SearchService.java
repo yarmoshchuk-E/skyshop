@@ -1,4 +1,4 @@
-package org.skypro.skyshop.model.service;
+package org.skypro.skyshop.service;
 
 import org.skypro.skyshop.model.search.SearchResult;
 import org.skypro.skyshop.model.search.Searchable;
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class SearchService {
@@ -23,6 +22,6 @@ public class SearchService {
         return allSearchables.stream()
                 .filter(searchable -> searchable.getSearchTerm().contains(pattern))
                 .map(SearchResult::fromSearchable)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
