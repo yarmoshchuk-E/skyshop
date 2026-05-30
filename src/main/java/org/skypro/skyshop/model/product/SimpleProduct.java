@@ -1,14 +1,21 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.UUID;
+
 public class SimpleProduct extends Product {
     private final int productPrice;
+    private final UUID id;
 
-    public SimpleProduct(String productName, int productPrice) {
-        super(productName);
+    public SimpleProduct(UUID id, String productName, int productPrice) {
+        super(id, productName);
         if (productPrice <= 0) {
             throw new IllegalArgumentException("неверно указана цена!");
         }
         this.productPrice = productPrice;
+        this.id = id;
+
     }
 
     @Override
@@ -31,14 +38,20 @@ public class SimpleProduct extends Product {
     public String toString() {
         return super.toString();
     }
+
     @Override
     public String getSearchTerm() {
         return getProductName();
     }
 
+
     @Override
     public String getTypeOfContent() {
         return "PRODUCT";
     }
-}
 
+    @Override
+    public UUID getId() {
+        return id;
+    }
+}
