@@ -8,10 +8,10 @@ public class BasketItem {
     private final int quantity;
 
     public BasketItem(Product product, int quantity) {
-        this.product = product;;
+        this.product = product;
+        ;
         this.quantity = quantity;
     }
-
 
     public Product getProduct() {
         return product;

@@ -41,11 +41,15 @@ public abstract class Product implements Searchable {
 
     @JsonIgnore
     @Override
-    public String getSearchTerm() {return toString();}
+    public String getSearchTerm() {
+        return toString();
+    }
 
     @JsonIgnore
     @Override
-    public String getTypeOfContent() {return "PRODUCT";}
+    public String getTypeOfContent() {
+        return "PRODUCT";
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -59,7 +63,6 @@ public abstract class Product implements Searchable {
     public int hashCode() {
         return Objects.hashCode(productName);
     }
-
 
     @Override
     public UUID getId() {
