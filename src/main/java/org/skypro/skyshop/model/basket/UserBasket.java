@@ -1,8 +1,6 @@
 package org.skypro.skyshop.model.basket;
 
-
 import java.util.List;
-
 
 public class UserBasket {
     private final List<BasketItem> items;

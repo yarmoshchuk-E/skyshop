@@ -17,7 +17,7 @@ public class StorageService {
     private final Map<UUID, Product> products;
     private final Map<UUID, Article> articles;
 
-    Map <UUID,Product> availableProducts= new HashMap<>();
+    Map<UUID, Product> availableProducts = new HashMap<>();
 
     public StorageService() {
         this.products = new HashMap<>();
