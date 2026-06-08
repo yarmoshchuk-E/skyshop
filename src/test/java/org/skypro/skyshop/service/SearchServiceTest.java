@@ -13,12 +13,11 @@ import org.skypro.skyshop.model.search.Searchable;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class SearchServiceTest {
+
     @Mock
     private StorageService storageService;
 
@@ -36,7 +35,7 @@ public class SearchServiceTest {
     @Test
     public void givenEmptyList_whenSearch_thenReturnInappropriateStorage() {
 
-        List <Searchable> inappropriateStorage = List.of(
+        List<Searchable> inappropriateStorage = List.of(
                 new SimpleProduct(UUID.randomUUID(), "молоко", 100),
                 new SimpleProduct(UUID.randomUUID(), "хлеб", 40),
                 new FixPriceProduct(UUID.randomUUID(), "зефир")
@@ -50,7 +49,7 @@ public class SearchServiceTest {
     @Test
     public void givenResult_whenSearch_thenReturnNotEmptyStorage() {
 
-        List <Searchable> NotEmptyStorage = List.of(
+        List<Searchable> NotEmptyStorage = List.of(
                 new SimpleProduct(UUID.randomUUID(), "TestProduct", 100),
                 new SimpleProduct(UUID.randomUUID(), "хлеб", 40),
                 new FixPriceProduct(UUID.randomUUID(), "зефир")
@@ -64,16 +63,4 @@ public class SearchServiceTest {
                 .extracting(SearchResult::getName)
                 .contains("TestProduct");
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
