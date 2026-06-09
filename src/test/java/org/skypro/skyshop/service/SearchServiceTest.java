@@ -29,7 +29,7 @@ public class SearchServiceTest {
 
         when(storageService.getAllSearchables()).thenReturn(Collections.emptyList());
         List<SearchResult> results = searchService.search("хлеб");
-        assertThat(results.isEmpty());
+        assertThat(results).isEmpty();
     }
 
     @Test
@@ -43,7 +43,7 @@ public class SearchServiceTest {
 
         when(storageService.getAllSearchables()).thenReturn(inappropriateStorage);
         List<SearchResult> results = searchService.search("конфеты");
-        assertThat(results.isEmpty());
+        assertThat(results).isEmpty();
     }
 
     @Test

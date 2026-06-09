@@ -51,9 +51,9 @@ public class BasketServiceTest {
     public void givenEmptyUserBasket_whenAdd_thenProductBasketIsEmpty() {
 
         when(productBasket.getProductsInBasket()).thenReturn(Collections.emptyMap());
-        basketService.getUserBasket();
-        assertThat(userBasket.getItems()).isEmpty();
-        assertThat(userBasket.getTotal()).isZero();
+        UserBasket result = basketService.getUserBasket();
+        assertThat(result.getItems()).isEmpty();
+        assertThat(result.getTotal()).isZero();
     }
 
     @Test
